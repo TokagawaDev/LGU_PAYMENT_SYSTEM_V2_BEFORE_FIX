@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prepare": "husky install || true",
     "build": "nx build",
     "build:backend": "nx build @lgu-payment-system/backend",
     "build:frontend": "nx build frontend",
