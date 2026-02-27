@@ -125,7 +125,7 @@ Then use the ngrok URL as your webhook URL.
 ### 5.2 Update Paymongo Credentials
 Find the Paymongo section (around lines 28-31) and replace with your new keys:
 
-```env
+<!-- ```env
 #Paymongo
 PAYMONGO_PUBLIC_KEY=pk_test_YOUR_PUBLIC_KEY_HERE
 PAYMONGO_SECRET_KEY=sk_test_YOUR_SECRET_KEY_HERE
@@ -137,7 +137,7 @@ PAYMONGO_WEBHOOK_SECRET=whsk_YOUR_WEBHOOK_SECRET_HERE
 #Paymongo
 PAYMONGO_PUBLIC_KEY=pk_test_UBZE1Jm9aHTi6ZKYvbekQ8yR
 PAYMONGO_SECRET_KEY=sk_test_c3sawcTB5TiyDcY6tuPm21rK
-PAYMONGO_WEBHOOK_SECRET=whsk_FtbZJZxMQqx4mVZfzYLddqxj
+PAYMONGO_WEBHOOK_SECRET=whsk_FtbZJZxMQqx4mVZfzYLddqxj -->
 ```
 
 ### 5.3 Save the File
