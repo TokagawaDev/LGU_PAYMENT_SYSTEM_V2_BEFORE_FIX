@@ -1,0 +1,70 @@
+{
+  "name": "@lgu-payment-system/frontend",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "frontend",
+    "targets": {
+      "build": {
+        "executor": "@nx/next:build",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "outputPath": "dist/apps/frontend"
+        },
+        "configurations": {
+          "development": {
+            "outputPath": "dist/apps/frontend"
+          },
+          "production": {}
+        }
+      },
+      "serve": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "next dev",
+          "cwd": "apps/frontend"
+        },
+        "configurations": {
+          "development": {
+            "command": "next dev --port=4200"
+          },
+          "production": {
+            "command": "next start --port=4200"
+          }
+        }
+      },
+      "export": {
+        "executor": "@nx/next:export",
+        "options": {
+          "buildTarget": "frontend:build:production"
+        }
+      },
+      "lint": {
+        "executor": "@nx/eslint:lint",
+        "outputs": [
+          "{options.outputFile}"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-slot": "^1.2.3",
+    "apexcharts": "^4.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.2",
+    "lucide-react": "^0.534.0",
+    "next": "~15.2.4",
+    "react": "19.0.0",
+    "react-apexcharts": "1.7.0",
+    "react-dom": "19.0.0",
+    "react-hot-toast": "^2.4.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

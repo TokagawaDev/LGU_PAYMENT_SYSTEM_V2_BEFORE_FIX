@@ -1,0 +1,85 @@
+{
+  "name": "@lgu-payment-system/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install",
+    "build": "nx build",
+    "build:backend": "nx build @lgu-payment-system/backend",
+    "build:frontend": "nx build frontend",
+    "start": "nx serve",
+    "start:backend": "nx serve @lgu-payment-system/backend",
+    "start:frontend": "nx serve frontend",
+    "start:prod:backend": "node apps/backend/dist/main.js",
+    "lint": "npx nx run-many -t lint -p frontend,backend --parallel",
+    "lint-limited": "eslint \"apps/*/src/**/*.{ts,tsx,js,jsx}\" --fix"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "nx format:write",
+      "eslint --fix"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "axios": "^1.6.0",
+    "next": "~15.2.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^2.1.1",
+    "@eslint/js": "^9.8.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.0",
+    "@next/eslint-plugin-next": "^15.2.4",
+    "@nrwl/next": "^19.8.4",
+    "@nx/eslint": "21.3.8",
+    "@nx/eslint-plugin": "21.3.8",
+    "@nx/js": "21.3.8",
+    "@nx/nest": "^21.3.8",
+    "@nx/next": "^21.3.8",
+    "@nx/node": "21.3.8",
+    "@nx/web": "21.3.8",
+    "@nx/webpack": "21.3.8",
+    "@nx/workspace": "21.3.8",
+    "@swc-node/register": "~1.9.1",
+    "@swc/cli": "~0.6.0",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@types/node": "~18.16.9",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "autoprefixer": "10.4.13",
+    "eslint": "^9.8.0",
+    "eslint-config-next": "^15.2.4",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jsx-a11y": "6.10.1",
+    "eslint-plugin-react": "7.35.0",
+    "eslint-plugin-react-hooks": "5.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "nx": "21.3.8",
+    "postcss": "8.4.38",
+    "prettier": "^2.6.2",
+    "tailwindcss": "3.4.3",
+    "tslib": "^2.3.0",
+    "typescript": "~5.8.2",
+    "typescript-eslint": "^8.29.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "overrides": {
+    "@nestjs/config": "4.0.2"
+  }
+}

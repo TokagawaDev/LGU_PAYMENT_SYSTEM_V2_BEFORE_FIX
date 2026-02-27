@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "module": "nodenext",
+    "types": ["node"],
+    "rootDir": "../..",
+    "moduleResolution": "nodenext",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es2021",
+    "paths": {
+      "@shared/*": [
+        "../../libs/shared/src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "../../libs/shared/src/**/*.ts"
+  ],
+  "exclude": ["eslint.config.js", "eslint.config.cjs", "eslint.config.mjs"]
+}

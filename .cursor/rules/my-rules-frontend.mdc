@@ -1,0 +1,110 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+
+
+# 🧭 Frontend Cursor Rules (Development Guide)
+
+## 🎨 1. Styling
+
+- Use **only the indicated fonts, colors, and sizes** from the design system or Figma file.
+- **Do not** invent custom colors or spacing.
+
+### 📁 Theme constants live in:
+`/constants/theme.ts`
+
+```ts
+export const COLORS = {
+  primary: "#2563eb",
+  secondary: "#64748b",
+  error: "#ef4444",
+  ...
+};
+
+export const FONT_SIZES = {
+  xs: "0.75rem",
+  sm: "0.875rem",
+  ...
+};
+```
+
+---
+
+## ⚛️ 2. Component Structure (Atomic Design)
+
+**Base path:** `/components`
+
+- **Atoms** – Smallest building blocks:  
+  `/components/atoms/Button.tsx`, `Input.tsx`
+
+- **Molecules** – Groups of atoms forming reusable UI:  
+  `/components/molecules/LoginForm.tsx`, `PaymentCard.tsx`
+
+- **Organisms** – Sections made from molecules & atoms:  
+  `/components/organisms/DashboardPanel.tsx`
+
+✅ *Keep logic minimal inside components. Use hooks or helpers instead.*
+
+---
+
+## 🧠 3. Dynamic-First Mindset
+
+- Avoid hardcoded values (e.g. headlines, logos, layout).
+- Fetch or receive all content dynamically.
+- Use constants for UI config (headlines, labels, etc.) in:  
+  `/constants/ui.ts`
+
+---
+
+## 🪝 4. Hooks & Libraries Organization
+
+- **Custom hooks** → `/hooks/usePayment.ts`, `/hooks/useAuth.ts`
+- **Helper utilities** → `/libs/formatDate.ts`, `/libs/validateEmail.ts`
+- **API or external lib wrappers** → `/libs/apiClient.ts`, `/libs/firebaseClient.ts`
+
+---
+
+## 🧾 5. Constants Handling
+
+Folder: `/constants/`
+
+Split into specific files:
+- `form.ts` → form field names, validation messages
+- `theme.ts` → color palette, font sizes, spacing
+- `api.ts` → base URLs, endpoints
+- `ui.ts` → labels, static texts, etc.
+
+---
+
+## 🔁 6. Reusability & DRY Rules
+
+- No duplicate components.
+- If two components are similar, extract shared logic as props or reusable children.
+- Shared logic goes into hooks or `/libs`.
+
+---
+
+## 📦 7. Folder Structure Example
+
+```
+/components
+  /atoms
+  /molecules
+  /organisms
+/constants
+/hooks
+/libs
+/pages
+/public
+/styles
+```
+
+---
+
+## ✅ 8. Development Tips
+
+- Avoid duplicating state – use global state management if needed (e.g. Zustand, Redux, Context).
+
+---
